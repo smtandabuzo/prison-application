@@ -40,6 +40,13 @@ export class AppComponent {
         url: '/settings',
         direct: 'forward',
         icon: 'cog'
+      },
+
+      {
+        title: 'Cases',
+        url: '/cases',
+        direct: 'forward',
+        icon: 'filing'
       }
     ];
 
