@@ -47,6 +47,32 @@ export class AppComponent {
         url: '/cases',
         direct: 'forward',
         icon: 'filing'
+      },
+
+      {
+        title: 'Court',
+        url: '/court',
+        direct: 'forward',
+        icon: 'hammer'
+      },
+
+      {
+        title: 'Transfer',
+        url: '/transfer',
+        direct: 'forward',
+        icon: 'swap'
+      },
+      {
+        title: 'Registration',
+        url: '/registration',
+        direct: 'forward',
+        icon: 'book'
+      },
+      {
+        title: 'Prisoners',
+        url: '/prisoners',
+        direct: 'forward',
+        icon: 'contacts'
       }
     ];
 
