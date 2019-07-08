@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CasesService } from '../../services/cases.service';
+import { AppSettings } from '../../models/app-settings';
+import { Case } from '../../models/case';
+import { HttpClient } from '@angular/common/http';
+import { RemoveCaseComponent } from '../../pages/modal/remove-case/remove-case.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cases',
@@ -7,15 +12,34 @@ import { CasesService } from '../../services/cases.service';
   styleUrls: ['./cases.component.scss']
 })
 export class CasesComponent implements OnInit {
+
+ /* @Input()
+  caseDetail: Case;*/
+
   public caseData: any = [];
-  //public cases: any = [];
-  constructor(public casesService: CasesService) { }
+  caseDetail: Case = new Case();
+  constructor(public casesService: CasesService, private http: HttpClient, public modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.casesService.getCases().subscribe(returnData => {
       console.log('Return Data ' + JSON.stringify(returnData));
-      this.caseData = returnData;
-      console.log('Case Data ' + JSON.stringify(this.caseData));
+      for (let i = 0; i < returnData.length; i++) {
+        this.caseDetail.nationalID = returnData[i].nationalID;
+        this.caseDetail.fileNumber = returnData[i].fileNumber;
+        this.caseDetail.dateOfTrial = returnData[i].dateOfTrial;
+        this.caseDetail.sentence = returnData[i].sentence;
+        this.caseDetail.location = returnData[i].location;
+
+        this.caseDetail.cases.push({
+          'nationalID': this.caseDetail.nationalID,
+          'fileNumber': this.caseDetail.fileNumber,
+          'dateOfTrial': this.caseDetail.dateOfTrial,
+          'sentence': this.caseDetail.sentence,
+          'location': this.caseDetail.location
+        });
+      }
+      //this.caseData = returnData;
+      console.log('Case Data ' + JSON.stringify(this.caseDetail.cases));
     });
   }
   public addCase() {
@@ -26,5 +50,12 @@ export class CasesComponent implements OnInit {
       'sentence': '',
       'location': ''
     });
+  }
+
+  async removeCaseModal() {
+    const modal = await this.modalCtrl.create({
+      component: RemoveCaseComponent
+    });
+    return await modal.present();
   }
 }

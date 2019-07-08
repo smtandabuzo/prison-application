@@ -7,6 +7,47 @@
   </ion-toolbar>
 </ion-header>
 
+<div class="row">
+
+<ion-item>
+    <ion-label color="primary" position="stacked">National ID</ion-label>
+    <ion-input type="text"  name="nationalID"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label position="stacked">File Number<ion-text color="danger"></ion-text></ion-label>
+    <ion-input type="text"  name="fileNumber"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label position="stacked">Date Of Trial<ion-text color="danger"></ion-text></ion-label>
+    <ion-datetime placeholder="Select Date"  name="dateOfTrial"></ion-datetime>
+</ion-item>
+
+<ion-item>
+    <ion-label position="stacked">Sentence<ion-text color="danger"></ion-text></ion-label>
+    <ion-input type="text"  name="sentence"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label position="stacked">Location<ion-text color="danger"></ion-text></ion-label>
+    <ion-input type="text"  name="location"></ion-input>
+</ion-item>
+
+<div class="ion-padding">
+    <ion-button expand="block" type="submit" class="ion-no-margin">Create case</ion-button>
+</div>
+
+<div class="ion-padding">
+    <ion-button expand="block" type="submit" class="ion-no-margin">Update case</ion-button>
+</div>
+
+<div class="ion-padding">
+    <ion-button expand="block" type="submit" class="ion-no-margin">Delete case</ion-button>
+</div>
+
+</div>
+
 <ion-content class="animated fadeIn login auth-page">
   <div class="theme-bg"></div>
   <div class="auth-content">
@@ -24,34 +65,54 @@
            </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let case of caseData; index as i">
+            <tr *ngFor="let case of caseDetail.cases; index as i">
               <td>
                 <ion-item>
-                  <ion-input type="text" class="item" [(ngModel)]="case.nationalID" name="nationalID"></ion-input>
+                  <ion-input
+                          type="text"
+                          class="item"
+                          [(ngModel)]="case.nationalID"
+                          name="nationalID">
+                  </ion-input>
                 </ion-item>
               </td>
               <td>
                 <ion-item>
-                  <ion-input type="text" [(ngModel)]="case.fileNumber" name="fileNumber"></ion-input>
+                  <ion-input
+                          type="text"
+                          [(ngModel)]="case.fileNumber"
+                          name="fileNumber">
+                  </ion-input>
                 </ion-item>
               </td>
               <td>
                 <ion-item>
-                  <ion-datetime [(ngModel)]="case.dateOfTrial" name="dateOfTrial"></ion-datetime>
+                  <ion-datetime
+                          [(ngModel)]="case.dateOfTrial"
+                          name="dateOfTrial">
+                  </ion-datetime>
                 </ion-item>
               </td>
               <td>
                 <ion-item>
-                  <ion-input type="text" [(ngModel)]="case.sentence" name="sentence"></ion-input>
+                  <ion-input
+                          type="text"
+                          [(ngModel)]="case.sentence"
+                          name="sentence">
+                  </ion-input>
                 </ion-item>
               </td>
               <td>
                 <ion-item>
-                  <ion-input type="text" [(ngModel)]="case.location" name="location"></ion-input>
+                  <ion-input
+                          type="text"
+                          [(ngModel)]="case.location"
+                          name="location">
+                  </ion-input>
                 </ion-item>
               </td>
               <td>
-                <button data-toggle="modal" data-target="#myBen1">
+                <button (click)="removeCaseModal()">
                   <ion-icon name="trash"></ion-icon>
                 </button>
               </td>
@@ -59,16 +120,7 @@
           </tbody>
         </table>
 
-        <div class="ion-padding">
-          <ion-button expand="block" type="submit" (click)="addCase()" class="ion-no-margin">Add case</ion-button>
-        </div>
-
-        <div class="ion-padding">
-          <ion-button expand="block" type="submit" class="ion-no-margin">Update case</ion-button>
-        </div>
-
       </ion-list>
     </form>
   </div>
 </ion-content>
-

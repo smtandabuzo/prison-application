@@ -14,9 +14,12 @@ import { AppRoutingModule } from './app-routing.module';
 // Modal Pages
 import { ImagePageModule } from './pages/modal/image/image.module';
 import { SearchFilterPageModule } from './pages/modal/search-filter/search-filter.module';
+import { RemoveCaseModule } from './pages/modal/remove-case/remove-case.module';
 
 // Components
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { RemoveCaseComponent } from './pages/modal/remove-case/remove-case.component';
+
 
 
 @NgModule({
@@ -28,9 +31,10 @@ import { NotificationsComponent } from './components/notifications/notifications
     AppRoutingModule,
     HttpClientModule,
     ImagePageModule,
-    SearchFilterPageModule
+    SearchFilterPageModule,
+      RemoveCaseModule
   ],
-  entryComponents: [NotificationsComponent],
+  entryComponents: [NotificationsComponent, RemoveCaseComponent],
   providers: [
     StatusBar,
     SplashScreen,
