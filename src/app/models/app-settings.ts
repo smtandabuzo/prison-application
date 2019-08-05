@@ -6,7 +6,6 @@ import { HttpHeaders } from '@angular/common/http';
 export class AppSettings {
     public casesUrl: string;
     constructor() {
-        //this.casesUrl = '/cases';
         this.casesUrl = 'http://localhost:1337';
     }
 }

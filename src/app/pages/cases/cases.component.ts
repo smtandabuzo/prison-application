@@ -18,9 +18,18 @@ export class CasesComponent implements OnInit {
 
   public caseData: any = [];
   caseDetail: Case = new Case();
+  newCase: Case = new Case();
+  actionMessage;
+  showEdit;
   constructor(public casesService: CasesService, private http: HttpClient, public modalCtrl: ModalController) { }
 
   ngOnInit() {
+    this.loadCaseData();
+    console.log('Case Data - Outside ' + JSON.stringify(this.caseDetail.cases));
+  }
+
+  public loadCaseData(): any {
+    this.caseDetail.cases = [];
     this.casesService.getCases().subscribe(returnData => {
       console.log('Return Data ' + JSON.stringify(returnData));
       for (let i = 0; i < returnData.length; i++) {
@@ -29,27 +38,30 @@ export class CasesComponent implements OnInit {
         this.caseDetail.dateOfTrial = returnData[i].dateOfTrial;
         this.caseDetail.sentence = returnData[i].sentence;
         this.caseDetail.location = returnData[i].location;
+        this.caseDetail.fullName = returnData[i].fullName;
 
         this.caseDetail.cases.push({
           'nationalID': this.caseDetail.nationalID,
           'fileNumber': this.caseDetail.fileNumber,
           'dateOfTrial': this.caseDetail.dateOfTrial,
           'sentence': this.caseDetail.sentence,
-          'location': this.caseDetail.location
+          'location': this.caseDetail.location,
+          'fullName': this.caseDetail.fullName
         });
       }
-      //this.caseData = returnData;
       console.log('Case Data ' + JSON.stringify(this.caseDetail.cases));
     });
   }
   public addCase() {
-    this.caseData.push({
+    this.actionMessage = 'Add New Case';
+    this.showEdit = true;
+    /*this.caseData.push({
       'nationalID': '',
       'fileNumber': '',
       'dateOfTrial': '',
       'sentence': '',
       'location': ''
-    });
+    });*/
   }
 
   async removeCaseModal() {
@@ -57,5 +69,24 @@ export class CasesComponent implements OnInit {
       component: RemoveCaseComponent
     });
     return await modal.present();
+  }
+
+  delete(newCase: Case): void {
+    console.log('New Case ' + JSON.stringify(newCase));
+    this.casesService.deleteCase(newCase).subscribe(returnData => {
+      console.log('Response from delete ' + returnData);
+     this.loadCaseData();
+    });
+  }
+  add(newCase): void {
+    this.showEdit = false;
+    this.casesService.addCase(this.newCase).subscribe(returnData => {
+      console.log('Response from add ' + JSON.stringify(returnData));
+      this.loadCaseData();
+      this.newCase = {};
+    });
+  }
+  cancel(): void {
+    this.showEdit = false;
   }
 }

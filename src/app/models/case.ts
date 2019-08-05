@@ -7,5 +7,6 @@ export class Case {
  dateOfTrial: Date;
  sentence: string;
  location: string;
+ fullName: string;
  public cases: any = [];
 }
