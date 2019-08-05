@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Prisoner Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div *ngIf="prisoner">
+    <h2>{{prisoner.fullName | uppercase}} Details</h2>
+    <div><span>nationalID : </span>{{prisoner.nationalID}}</div>
+    <div>
+      <label>fullName :
+        <input type="text" value="{{prisoner.fullName}}">
+      </label>
+    </div>
+  </div>
+</ion-content>

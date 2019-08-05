@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Case Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div *ngIf="case">
+    <h2>{{case.fullName | uppercase}} Details</h2>
+    <div><span>nationalID : </span>{{case.nationalID}}</div>
+    <div>
+      <label>fullName :
+        <input type="text" value="{{case.fullName}}">
+      </label>
+    </div>
+  </div>
+</ion-content>
+

@@ -11,7 +11,7 @@ import { MessageService } from './../services/message.service';
 })
 export class CasesService {
   APP_SETTINGS: AppSettings = new AppSettings();
-  private apiURL = this.APP_SETTINGS.casesUrl;
+  private apiURL = this.APP_SETTINGS.servicesUrl;
   public casesData: any;
   constructor(private http: HttpClient,
               private messageService: MessageService) { }

@@ -4,8 +4,8 @@
 import { HttpHeaders } from '@angular/common/http';
 
 export class AppSettings {
-    public casesUrl: string;
+    public servicesUrl: string;
     constructor() {
-        this.casesUrl = 'http://localhost:1337';
+        this.servicesUrl = 'http://localhost:1337';
     }
 }

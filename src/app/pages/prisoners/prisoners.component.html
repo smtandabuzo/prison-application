@@ -6,3 +6,50 @@
     <ion-title>Prisoners</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+  <ul>
+    <li *ngFor="let prisoner of prisonerDetail.prisoners">
+      <a routerLink="/detail/{{prisoner.nationalID}}">
+        <span>{{prisoner.nationalID}}</span> {{prisoner.fullName}}
+      </a>
+      <ion-button (click)="delete(prisoner)">x</ion-button>
+    </li>
+  </ul>
+  <ion-button (click)="addPrisoner()">Add prisoner</ion-button>
+  <div *ngIf="showEdit">
+    <label>{{actionMessage}}</label>
+    <form class="form-horizontal">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <label>National ID</label>
+            <input type="text" [(ngModel)]="newPrisoner.nationalID" name="nationalID">
+          </ion-col>
+          <ion-col>
+            <label>File Number</label>
+            <input type="text" [(ngModel)]="newPrisoner.fileNumber" name="fileNumber">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <label>Date Of Trial</label>
+            <input type="text" [(ngModel)]="newPrisoner.dateOfBirt" name="dateOfBirth">
+          </ion-col>
+          <ion-col>
+            <label>Sentence</label>
+            <input type="text" [(ngModel)]="newPrisoner.sentence" name="sentence">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <label>Location</label>
+            <input type="text" [(ngModel)]="newPrisoner.location" name="location">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-button (click)="add(newPrisoner)">Save</ion-button>
+      <ion-button (click)="cancel()">Cancel</ion-button>
+    </form>
+  </div>
+</ion-content>

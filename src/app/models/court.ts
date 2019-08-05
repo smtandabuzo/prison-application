@@ -7,4 +7,5 @@ export class Court {
     dateOfTrial: Date;
     sentence: string;
     location: string;
+    public courts: any = [];
 }

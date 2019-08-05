@@ -13,10 +13,6 @@ import { ModalController } from '@ionic/angular';
 })
 export class CasesComponent implements OnInit {
 
- /* @Input()
-  caseDetail: Case;*/
-
-  public caseData: any = [];
   caseDetail: Case = new Case();
   newCase: Case = new Case();
   actionMessage;
@@ -55,13 +51,6 @@ export class CasesComponent implements OnInit {
   public addCase() {
     this.actionMessage = 'Add New Case';
     this.showEdit = true;
-    /*this.caseData.push({
-      'nationalID': '',
-      'fileNumber': '',
-      'dateOfTrial': '',
-      'sentence': '',
-      'location': ''
-    });*/
   }
 
   async removeCaseModal() {
@@ -83,7 +72,7 @@ export class CasesComponent implements OnInit {
     this.casesService.addCase(this.newCase).subscribe(returnData => {
       console.log('Response from add ' + JSON.stringify(returnData));
       this.loadCaseData();
-      this.newCase = {};
+      this.newCase = new Case ();
     });
   }
   cancel(): void {

@@ -6,3 +6,50 @@
     <ion-title>Court</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+  <ul>
+    <li *ngFor="let court of courtDetail.courts">
+      <a routerLink="/detail/{{court.nationalID}}">
+        <span>{{court.nationalID}}</span> {{court.location}}
+      </a>
+      <ion-button (click)="delete(court)">x</ion-button>
+    </li>
+  </ul>
+  <ion-button (click)="addCourt()">Add new court</ion-button>
+  <div *ngIf="showEdit">
+    <label>{{actionMessage}}</label>
+    <form class="form-horizontal">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <label>National ID</label>
+            <input type="text" [(ngModel)]="newCourt.nationalID" name="nationalID">
+          </ion-col>
+          <ion-col>
+            <label>File Number</label>
+            <input type="text" [(ngModel)]="newCourt.fileNumber" name="fileNumber">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <label>Date Of Trial</label>
+            <input type="text" [(ngModel)]="newCourt.dateOfTrial" name="dateOfTrial">
+          </ion-col>
+          <ion-col>
+            <label>Sentence</label>
+            <input type="text" [(ngModel)]="newCourt.sentence" name="sentence">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <label>Location</label>
+            <input type="text" [(ngModel)]="newCourt.location" name="location">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-button (click)="add(newCourt)">Save</ion-button>
+      <ion-button (click)="cancel()">Cancel</ion-button>
+    </form>
+  </div>
+</ion-content>
