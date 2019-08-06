@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Transfer Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div *ngIf="transfer">
+    <!--<h2>{{transfer.fileNumber}} Details</h2>-->
+    <div><span>nationalID : </span>{{transfer.nationalID}}</div>
+    <div>
+      <label>fromPrison :
+        <input type="text" value="{{transfer.fromPrison}}">
+      </label>
+    </div>
+  </div>
+</ion-content>
