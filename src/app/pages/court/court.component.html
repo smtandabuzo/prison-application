@@ -9,7 +9,7 @@
 <ion-content>
   <ul>
     <li *ngFor="let court of courtDetail.courts">
-      <a routerLink="/detail/{{court.nationalID}}">
+      <a routerLink="/court/{{court.nationalID}}">
         <span>{{court.nationalID}}</span> {{court.location}}
       </a>
       <ion-button (click)="delete(court)">x</ion-button>

@@ -43,6 +43,7 @@ export class CasesService {
     );
   }
 
+
   public getCase(nationalID: number): Observable<Case> {
    const url = `${this.apiURL + '/cases/nationalID'}/${nationalID}`;
     return this.http.get<Case>(url).pipe(

@@ -12,6 +12,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class PrisonerService {
 
   APP_SETTINGS: AppSettings = new AppSettings();
+
   public prisonerData: any;
   private apiURL = this.APP_SETTINGS.servicesUrl;
 
@@ -33,6 +34,7 @@ export class PrisonerService {
         tap(_ => this.log(`deleted prisoner national id=${nationalID}`)),
         catchError(
             this.handleError<Prisoner>('deletePrisoner')
+
         )
     );
   }

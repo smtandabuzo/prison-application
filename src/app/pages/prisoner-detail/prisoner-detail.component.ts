@@ -14,6 +14,7 @@ export class PrisonerDetailComponent implements OnInit {
               private prisonerService: PrisonerService) { }
 
   ngOnInit() {
+    this.getPrisoner();
   }
 
   getPrisoner(): void {

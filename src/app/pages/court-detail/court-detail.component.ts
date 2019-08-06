@@ -14,6 +14,7 @@ export class CourtDetailComponent implements OnInit {
               private courtService: CourtService) { }
 
   ngOnInit() {
+    this.getCourt();
   }
 
   getCourt(): void {

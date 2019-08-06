@@ -33,13 +33,29 @@ export class PrisonersComponent implements OnInit {
         this.prisonerDetail.dateOfBirth = returnData[i].dateOfBirth;
         this.prisonerDetail.sentence = returnData[i].sentence;
         this.prisonerDetail.location = returnData[i].location;
+        this.prisonerDetail.address = returnData[i].address;
+        this.prisonerDetail.prison = returnData[i].prison;
+        this.prisonerDetail.gender = returnData[i].gender;
+        this.prisonerDetail.education = returnData[i].education;
+        this.prisonerDetail.status = returnData[i].status;
+        this.prisonerDetail.offence = returnData[i].offence;
+        this.prisonerDetail.dateIn = returnData[i].dateIn;
+        this.prisonerDetail.fullName = returnData[i].fullName;
 
         this.prisonerDetail.prisoners.push({
           'nationalID': this.prisonerDetail.nationalID,
           'fileNumber': this.prisonerDetail.fileNumber,
           'dateOfTrial': this.prisonerDetail.dateOfBirth,
           'sentence': this.prisonerDetail.sentence,
-          'location': this.prisonerDetail.location
+          'location': this.prisonerDetail.location,
+          'address': this.prisonerDetail.address,
+          'prison': this.prisonerDetail.prison,
+          'gender': this.prisonerDetail.gender,
+          'education': this.prisonerDetail.education,
+          'status': this.prisonerDetail.status,
+          'offence': this.prisonerDetail.offence,
+          'dateIn': this.prisonerDetail.dateIn,
+          'fullName': this.prisonerDetail.fullName
         });
       }
       console.log('Prisoner Data ' + JSON.stringify(this.prisonerDetail.prisoners));
@@ -60,7 +76,7 @@ export class PrisonersComponent implements OnInit {
   }
   add(newPrisoner): void {
     this.showEdit = false;
-    this.prisonerService.addPrisoner(this.newPrisoner).subscribe(returnData => {
+    this.prisonerService.addPrisoner(newPrisoner).subscribe(returnData => {
       console.log('Response from add ' + JSON.stringify(returnData));
       this.loadPrisonerData();
       this.newPrisoner = new Prisoner ();

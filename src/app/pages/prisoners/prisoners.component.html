@@ -9,8 +9,8 @@
 <ion-content>
   <ul>
     <li *ngFor="let prisoner of prisonerDetail.prisoners">
-      <a routerLink="/detail/{{prisoner.nationalID}}">
-        <span>{{prisoner.nationalID}}</span> {{prisoner.fullName}}
+      <a routerLink="/prisoner/{{prisoner.nationalID}}">
+        <span>{{prisoner.nationalID}}</span> <span>{{prisoner.fullName}}</span> <span>{{prisoner.location}}</span>
       </a>
       <ion-button (click)="delete(prisoner)">x</ion-button>
     </li>
@@ -42,8 +42,48 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <label>Location</label>
-            <input type="text" [(ngModel)]="newPrisoner.location" name="location">
+          <label>Location</label>
+          <input type="text" [(ngModel)]="newPrisoner.location" name="location">
+        </ion-col>
+          <ion-col>
+            <label>Full Name</label>
+            <input type="text" [(ngModel)]="newPrisoner.fullName" name="fullName">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <label>Address</label>
+            <input type="text" [(ngModel)]="newPrisoner.address" name="address">
+          </ion-col>
+          <ion-col>
+            <label>Prison</label>
+            <input type="text" [(ngModel)]="newPrisoner.prison" name="prison">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+        <ion-col>
+          <label>Gender</label>
+          <input type="text" [(ngModel)]="newPrisoner.gender" name="gender">
+        </ion-col>
+        <ion-col>
+          <label>Education</label>
+          <input type="text" [(ngModel)]="newPrisoner.education" name="education">
+        </ion-col>
+      </ion-row>
+        <ion-row>
+          <ion-col>
+            <label>Status</label>
+            <input type="text" [(ngModel)]="newPrisoner.status" name="status">
+          </ion-col>
+          <ion-col>
+            <label>Offence</label>
+            <input type="text" [(ngModel)]="newPrisoner.offence" name="offence">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <label>Date In</label>
+            <input type="text" [(ngModel)]="newPrisoner.dateIn" name="dateIn">
           </ion-col>
         </ion-row>
       </ion-grid>
