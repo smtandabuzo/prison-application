@@ -14,6 +14,7 @@ export class PrisonerService {
   APP_SETTINGS: AppSettings = new AppSettings();
 
   public prisonerData: any;
+
   private apiURL = this.APP_SETTINGS.servicesUrl;
 
   constructor(private http: HttpClient,

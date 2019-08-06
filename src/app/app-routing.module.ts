@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'prisoners', loadChildren: './pages/prisoners/prisoners.module#PrisonersModule'},
   { path: 'detail/:nationalID', loadChildren: './pages/case-detail/case-detail.module#CaseDetailModule'},
   { path: 'prisoner/:nationalID', loadChildren: './pages/prisoner-detail/prisoner-detail.module#PrisonerDetailModule'},
-  { path: 'court/:nationalID', loadChildren: './pages/court-detail/court-detail.module#CourtDetailModule'}
+  { path: 'court/:nationalID', loadChildren: './pages/court-detail/court-detail.module#CourtDetailModule'},
+  { path: 'transfer/:nationalID', loadChildren: './pages/transfer-detail/transfer-detail.module#TransferDetailModule'}
 ];
 
 @NgModule({

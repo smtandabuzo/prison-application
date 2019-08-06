@@ -6,6 +6,54 @@
     <ion-title>Transfer</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+  <ul>
+    <li *ngFor="let transfer of transferDetail.transfers">
+      <a routerLink="/transfer/{{transfer.nationalID}}">
+        <span>{{transfer.nationalID}}</span> <span>{{transfer.fullName}}</span>
+      </a>
+      <ion-button (click)="delete(transfer)">x</ion-button>
+    </li>
+  </ul>
+  <ion-button (click)="addTransfer()">Add transfer</ion-button>
+  <div *ngIf="showEdit">
+    <label>{{actionMessage}}</label>
+    <form class="form-horizontal">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <label>National ID</label>
+            <input type="text" [(ngModel)]="newTransfer.nationalID" name="nationalID">
+          </ion-col>
+          <ion-col>
+            <label>File Number</label>
+            <input type="text" [(ngModel)]="newTransfer.fileNumber" name="fileNumber">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <label>Date Of Trial</label>
+            <input type="text" [(ngModel)]="newTransfer.fromPrison" name="dateOfBirth">
+          </ion-col>
+          <ion-col>
+            <label>Sentence</label>
+            <input type="text" [(ngModel)]="newTransfer.toPrison" name="sentence">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <label>Location</label>
+            <input type="text" [(ngModel)]="newTransfer.dateOfTransfer" name="location">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-button (click)="add(newTransfer)">Save</ion-button>
+      <ion-button (click)="cancel()">Cancel</ion-button>
+    </form>
+  </div>
+</ion-content>
+
 
 <!--<ion-content class="profile">
   <ion-grid fixed no-padding="">
@@ -58,7 +106,7 @@
   </ion-grid>
 </ion-content>-->
 
-<ion-content class="animated fadeIn login auth-page">
+<!--<ion-content class="animated fadeIn login auth-page">
   <div class="theme-bg"></div>
   <div class="auth-content">
     <form class="list-form">
@@ -125,7 +173,7 @@
       </ion-list>
     </form>
   </div>
-</ion-content>
+</ion-content>-->
 
 
 
