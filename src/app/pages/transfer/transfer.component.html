@@ -7,14 +7,57 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ul>
-    <li *ngFor="let transfer of transferDetail.transfers">
-      <a routerLink="/transfer/{{transfer.nationalID}}">
-        <span>{{transfer.nationalID}}</span> <span>{{transfer.fullName}}</span>
-      </a>
-      <ion-button (click)="delete(transfer)">x</ion-button>
-    </li>
-  </ul>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2">
+        <label>National ID</label>
+      </ion-col>
+      <ion-col size="2">
+        <label>File Number</label>
+      </ion-col>
+      <ion-col size="2">
+        <label>From Prison</label>
+      </ion-col>
+      <ion-col size="2">
+        <label>To Prison</label>
+      </ion-col>
+      <ion-col size="2">
+        <label>Date Of Transfer</label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ul>
+      <div *ngFor="let transfer of transferDetail.transfers">
+       <!-- <a routerLink="/transfer/{{transfer.nationalID}}">
+          <span>{{transfer.nationalID}}</span> <span>{{transfer.fromPrison}}</span>
+        </a>
+        <ion-button (click)="delete(transfer)">x</ion-button>-->
+        <ion-grid>
+          <ion-row>
+            <ion-col size="2">
+              <span>{{transfer.nationalID}}</span>
+            </ion-col>
+            <ion-col size="2">
+              <span>{{transfer.fileNumber}}</span>
+            </ion-col>
+            <ion-col size="2">
+              <span>{{transfer.fromPrison}}</span>
+            </ion-col>
+            <ion-col size="2">
+              <span>{{transfer.toPrison}}</span>
+            </ion-col>
+            <ion-col size="2">
+              <span>{{transfer.dateOfTransfer}}</span>
+            </ion-col>
+            <ion-col size="2">
+              <ion-button (click)="delete(transfer)"><ion-icon name="trash"></ion-icon></ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ul>
+  </ion-grid>
   <ion-button (click)="addTransfer()">Add transfer</ion-button>
   <div *ngIf="showEdit">
     <label>{{actionMessage}}</label>
@@ -32,17 +75,17 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <label>Date Of Trial</label>
+            <label>From Prison:</label>
             <input type="text" [(ngModel)]="newTransfer.fromPrison" name="dateOfBirth">
           </ion-col>
           <ion-col>
-            <label>Sentence</label>
+            <label>To Prison:</label>
             <input type="text" [(ngModel)]="newTransfer.toPrison" name="sentence">
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <label>Location</label>
+            <label>Date Of Transfer</label>
             <input type="text" [(ngModel)]="newTransfer.dateOfTransfer" name="location">
           </ion-col>
         </ion-row>

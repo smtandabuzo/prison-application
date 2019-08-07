@@ -15,6 +15,7 @@ export class TransferService {
 
   public transferData: any;
 
+
   private apiURL = this.APP_SETTINGS.servicesUrl;
 
   constructor(private http: HttpClient,
