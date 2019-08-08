@@ -6,6 +6,6 @@ export class Transfer {
     fileNumber: number;
     fromPrison: string;
     toPrison: string;
-    dateOfTransfer: Date;
+    dateOfTransfer: number;
     public transfers: any = [];
 }

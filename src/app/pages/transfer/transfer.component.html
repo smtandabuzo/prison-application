@@ -7,6 +7,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <ion-toolbar><ion-searchbar></ion-searchbar></ion-toolbar>
   <ion-grid>
     <ion-row>
       <ion-col size="2">
@@ -36,19 +37,19 @@
         <ion-grid>
           <ion-row>
             <ion-col size="2">
-              <span>{{transfer.nationalID}}</span>
+              <span class="national-id-left-align">{{transfer.nationalID}}</span>
             </ion-col>
             <ion-col size="2">
-              <span>{{transfer.fileNumber}}</span>
+              <span class="file-number-left-align">{{transfer.fileNumber}}</span>
             </ion-col>
             <ion-col size="2">
-              <span>{{transfer.fromPrison}}</span>
+              <span class="left-align">{{transfer.fromPrison}}</span>
             </ion-col>
             <ion-col size="2">
-              <span>{{transfer.toPrison}}</span>
+              <span class="to-prison-left-align">{{transfer.toPrison}}</span>
             </ion-col>
             <ion-col size="2">
-              <span>{{transfer.dateOfTransfer}}</span>
+              <span class="transfer-date-left-align">{{transfer.dateOfTransfer}}</span>
             </ion-col>
             <ion-col size="2">
               <ion-button (click)="delete(transfer)"><ion-icon name="trash"></ion-icon></ion-button>
@@ -96,127 +97,3 @@
     </form>
   </div>
 </ion-content>
-
-
-<!--<ion-content class="profile">
-  <ion-grid fixed no-padding="">
-    <ion-row>
-      <ion-col size="12" padding>
-        <ion-list margin-bottom>
-
-          <ion-item>
-            <ion-label color="dark" position="stacked">National ID:</ion-label>
-            <ion-input inputmode="text"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label color="dark" position="stacked">File Number:</ion-label>
-            <ion-input inputmode="text"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label color="dark">From Prison:</ion-label>
-            <ion-select>
-              <ion-select-option value="nes">Wellington</ion-select-option>
-              <ion-select-option value="n64">Pollsmoor</ion-select-option>
-              <ion-select-option value="ps">Kokstad Maximum</ion-select-option>
-              <ion-select-option value="genesis">Pretoria Maximum</ion-select-option>
-            </ion-select>
-          </ion-item>
-
-          <ion-item>
-            <ion-label color="dark">To Prison:</ion-label>
-            <ion-select>
-              <ion-select-option value="nes">Wellington</ion-select-option>
-              <ion-select-option value="n64">Pollsmoor</ion-select-option>
-              <ion-select-option value="ps">Kokstad Maximum</ion-select-option>
-              <ion-select-option value="genesis">Pretoria Maximum</ion-select-option>
-            </ion-select>
-          </ion-item>
-
-          <ion-item>
-            <ion-label color="dark" position="stacked">Date Of Transfer:</ion-label>
-            <ion-datetime name="dateOfTrial"></ion-datetime>
-          </ion-item>
-
-          <div class="ion-padding">
-            <ion-button expand="block" type="submit" (click)="addCase()" class="ion-no-margin">Add transfer</ion-button>
-          </div>
-
-        </ion-list>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>-->
-
-<!--<ion-content class="animated fadeIn login auth-page">
-  <div class="theme-bg"></div>
-  <div class="auth-content">
-    <form class="list-form">
-      <ion-list class="ion-no-margin ion-no-padding">
-        <table class="table">
-          <thead>
-          <tr>
-            <th>National ID</th>
-            <th>File Number</th>
-            <th>From Prison</th>
-            <th>To Prison</th>
-            <th>Date Of Transfer</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>
-              <ion-item>
-                <ion-input inputmode="text"></ion-input>
-              </ion-item>
-            </td>
-
-            <td>
-              <ion-item>
-                <ion-input inputmode="text"></ion-input>
-              </ion-item>
-            </td>
-
-            <td>
-              <ion-item>
-                <ion-select>
-                  <ion-select-option value="nes">Wellington</ion-select-option>
-                  <ion-select-option value="n64">Pollsmoor</ion-select-option>
-                  <ion-select-option value="ps">Kokstad Maximum</ion-select-option>
-                  <ion-select-option value="genesis">Pretoria Maximum</ion-select-option>
-                </ion-select>
-              </ion-item>
-            </td>
-
-            <td>
-              <ion-item>
-                <ion-select>
-                  <ion-select-option value="nes">Wellington</ion-select-option>
-                  <ion-select-option value="n64">Pollsmoor</ion-select-option>
-                  <ion-select-option value="ps">Kokstad Maximum</ion-select-option>
-                  <ion-select-option value="genesis">Pretoria Maximum</ion-select-option>
-                </ion-select>
-              </ion-item>
-            </td>
-
-            <td>
-              <ion-item>
-                <ion-datetime name="dateOfTrial"></ion-datetime>
-              </ion-item>
-            </td>
-
-          </tr>
-          </tbody>
-        </table>
-
-        <div class="ion-padding">
-          <ion-button expand="block" type="submit" class="ion-no-margin">Add transfer</ion-button>
-        </div>
-      </ion-list>
-    </form>
-  </div>
-</ion-content>-->
-
-
-

@@ -11,8 +11,8 @@ export class TransferComponent implements OnInit {
 
   transferDetail: Transfer = new Transfer();
 
-  newTransfer: Transfer = new Transfer();
 
+  newTransfer: Transfer = new Transfer();
 
   actionMessage;
 
@@ -33,7 +33,7 @@ export class TransferComponent implements OnInit {
         this.transferDetail.fileNumber = returnData[i].fileNumber;
         this.transferDetail.fromPrison = returnData[i].fromPrison;
         this.transferDetail.toPrison = returnData[i].toPrison;
-        this.transferDetail.dateOfTransfer = returnData[i].dateOfTransfer;
+        this.transferDetail.dateOfTransfer = new Date(returnData[i].dateOfTransfer).toDateString();
 
         this.transferDetail.transfers.push({
           'nationalID': this.transferDetail.nationalID,
