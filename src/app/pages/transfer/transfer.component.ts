@@ -11,7 +11,6 @@ export class TransferComponent implements OnInit {
 
   transferDetail: Transfer = new Transfer();
 
-
   newTransfer: Transfer = new Transfer();
 
   actionMessage;

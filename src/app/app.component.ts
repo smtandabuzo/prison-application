@@ -48,7 +48,6 @@ export class AppComponent {
         direct: 'forward',
         icon: 'filing'
       },
-
       {
         title: 'Court',
         url: '/court',

@@ -7,14 +7,59 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ul>
+ <!-- <ul>
     <li *ngFor="let prisoner of prisonerDetail.prisoners">
       <a routerLink="/prisoner/{{prisoner.nationalID}}">
         <span>{{prisoner.nationalID}}</span> <span>{{prisoner.fullName}}</span> <span>{{prisoner.location}}</span>
       </a>
       <ion-button (click)="delete(prisoner)">x</ion-button>
     </li>
-  </ul>
+  </ul>-->
+  <!--<ion-toolbar><ion-searchbar></ion-searchbar></ion-toolbar>-->
+
+  <ion-grid>
+
+    <ion-tabs>
+      <ion-tab-bar slot="top">
+        <ion-tab-button tab="personal">
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>Personal Details</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="sentence">
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>Sentence Details</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+
+
+
+
+    <!--<ion-row>
+      <ion-col size="2">
+        <label>National ID</label>
+      </ion-col>
+      <ion-col size="2">
+        <label>File Number</label>
+      </ion-col>
+      <ion-col size="2">
+        <label>Date Of Trial</label>
+      </ion-col>
+      <ion-col size="2">
+        <label>Sentence</label>
+      </ion-col>
+      <ion-col size="2">
+        <label>Location</label>
+      </ion-col>
+      <ion-col size="2">
+        <label>Full Name</label>
+      </ion-col>
+    </ion-row>-->
+
+  </ion-grid>
+
+
   <ion-button (click)="addPrisoner()">Add prisoner</ion-button>
   <div *ngIf="showEdit">
     <label>{{actionMessage}}</label>

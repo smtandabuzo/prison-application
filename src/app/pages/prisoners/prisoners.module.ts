@@ -8,7 +8,32 @@ import { IonicModule } from '@ionic/angular';
 const routes: Routes = [
   {
     path: '',
-    component: PrisonersComponent
+    component: PrisonersComponent,
+    children: [
+      {
+        path: 'personal',
+        children: [
+          {
+            path: '',
+            loadChildren: '../prisoner-personal/prisoner-personal.module#PrisonerPersonalModule'
+          }
+        ]
+      },
+      {
+        path: 'sentence',
+        children: [
+          {
+            path: '',
+            loadChildren: '../prisoner-sentence/prisoner-sentence.module#PrisonerSentenceModule'
+          }
+        ]
+      },
+      {
+        path: '',
+        redirectTo: '',
+        pathMatch: 'full'
+      }
+    ]
   }
 ];
 
